@@ -1,0 +1,231 @@
+:root {
+  --bg: #06101b;
+  --bg-soft: #0d1d2d;
+  --panel: rgba(13, 29, 45, 0.72);
+  --text: #f4f1e9;
+  --muted: #b9c3ce;
+  --line: rgba(255, 255, 255, 0.12);
+  --accent: #f97316;
+  --accent-soft: #22d3ee;
+  --radius: 16px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Space Grotesk", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 10% 8%, rgba(34, 211, 238, 0.18), transparent 35%),
+    radial-gradient(circle at 90% 15%, rgba(249, 115, 22, 0.24), transparent 30%),
+    linear-gradient(165deg, #06101b, #0b1725 52%, #112741);
+  line-height: 1.6;
+}
+
+.noise {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  opacity: 0.08;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.28) 0.45px, transparent 0.45px);
+  background-size: 4px 4px;
+}
+
+.container {
+  width: min(1080px, 92%);
+  margin: 0 auto;
+}
+
+.nav {
+  padding: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 700;
+  font-size: 1.05rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.35rem 0.7rem;
+}
+
+.links {
+  display: flex;
+  gap: 1rem;
+}
+
+.links a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.hero {
+  min-height: 92vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-content {
+  margin: auto;
+  padding: 3rem 0;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent-soft);
+  font-size: 0.75rem;
+}
+
+h1, h2, h3 {
+  font-family: "Source Serif 4", serif;
+  line-height: 1.15;
+  margin: 0.2rem 0 0.8rem;
+}
+
+h1 { font-size: clamp(2.2rem, 5vw, 4rem); }
+h2 { font-size: clamp(1.55rem, 3.2vw, 2.5rem); }
+
+.lead {
+  max-width: 60ch;
+  color: var(--muted);
+  font-size: 1.06rem;
+}
+
+.meta {
+  margin: 1rem 0 0;
+  padding-left: 1rem;
+  color: var(--muted);
+}
+
+.meta a { color: var(--text); }
+
+.section {
+  padding: 4.7rem 0;
+}
+
+.section-head {
+  margin-bottom: 1rem;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 1rem;
+}
+
+.chips span {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.32rem 0.74rem;
+  color: var(--muted);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.cards {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1rem;
+  backdrop-filter: blur(6px);
+}
+
+.card p, .card li { color: var(--muted); }
+
+.timeline {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.timeline article {
+  border-left: 3px solid var(--accent);
+  padding: 0.3rem 0 0.3rem 1rem;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.time {
+  color: var(--accent-soft);
+  margin-top: -0.2rem;
+}
+
+.cert-grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.cert-grid p {
+  margin: 0;
+  padding: 0.8rem;
+  border: 1px dashed var(--line);
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.13);
+}
+
+.cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin: 1.2rem 0;
+}
+
+.btn {
+  text-decoration: none;
+  padding: 0.72rem 1rem;
+  border-radius: 11px;
+  border: 1px solid transparent;
+  font-weight: 600;
+}
+
+.btn.primary {
+  background: linear-gradient(120deg, var(--accent), #fb923c);
+  color: #17120c;
+}
+
+.btn.ghost {
+  border-color: var(--line);
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.small { color: var(--muted); }
+
+.footer {
+  border-top: 1px solid var(--line);
+  padding: 1.25rem 0;
+  color: var(--muted);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 700ms ease, transform 700ms ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 720px) {
+  .links { display: none; }
+  .section { padding: 3.4rem 0; }
+}
